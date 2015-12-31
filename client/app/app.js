@@ -5,6 +5,8 @@ angular.module('shortly', [
   'shortly.auth',
   'ngRoute'
 ])
+
+//angular.module('name', [dependecies --> other module names])
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
     .when('/signin', {
@@ -65,9 +67,10 @@ angular.module('shortly', [
     }
   });
 })
-.controller('LogoutController', function ($rootScope, $scope, Auth) {
-  // Your code here
-  $rootScope.isLoggedIn = false;
-  Auth.signout();
-
+.controller('LogoutController', function($rootScope, $scope, Auth) {
+  $scope.logout = function() {
+    $rootScope.isLoggedIn = false;
+    Auth.signout();
+  }
 });
+
