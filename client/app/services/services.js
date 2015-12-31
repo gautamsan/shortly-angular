@@ -11,12 +11,25 @@ angular.module('shortly.services', [])
       return resp.data
     }, function errorCallback(error){
       console.log(error);
-    });
-
+    });  
   };
-  //$http request for link data
+
+  var addLinkData = function(data) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: data
+    })
+    .then(function(resp) {
+      return resp.data;
+    })
+    .catch(function(error) {
+      console.error(error);
+    });
+  }
   return {
-    getLinkData: getLinkData
+    getLinkData: getLinkData,
+    addLinkData: addLinkData
   }
 })
 
