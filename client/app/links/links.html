@@ -1,17 +1,17 @@
 <div id='container' >
   <!-- Your html here -->
-  <div class='navigation'>
+<!--   <div class='navigation'>
     <ul>
       <li><a href="#/links">links</a></li>
       <li><a href="#/shorten">shorten</a></li>
     </ul>
-  </div> 
+  </div>  -->
 
   <ul ng-repeat="link in data.links">
     <li>
       <h2>{{ link.title }}</h2>
       <p>{{ link.base_url }}</p>
-      <p>{{ link.url+link.code }}</p>
+      <p>{{ link.url+ '/' + link.code }}</p>
       <p>Visits: {{ link.visits }}</p>
     </li>
   </ul>

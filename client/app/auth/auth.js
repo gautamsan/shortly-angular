@@ -3,12 +3,13 @@
 // in our signup/signin forms using the injected Auth service
 angular.module('shortly.auth', [])
 
-.controller('AuthController', function ($scope, $window, $location, Auth) {
+.controller('AuthController', function ($rootScope, $scope, $window, $location, Auth) {
   $scope.user = {};
 
   $scope.signin = function () {
     Auth.signin($scope.user)
       .then(function (token) {
+        $rootScope.isLoggedIn = true;
         $window.localStorage.setItem('com.shortly', token);
         $location.path('/links');
       })
@@ -27,4 +28,5 @@ angular.module('shortly.auth', [])
         console.error(error);
       });
   };
+
 });

@@ -8,6 +8,13 @@
   <body>
     <h1>Shortly</h1>
 
+      <div class='navigation' ng-controller="LogoutController">
+        <ul ng-if="isLoggedIn">
+          <li><a href="#/links">links</a></li>
+          <li><a href="#/shorten">shorten</a></li>
+          <li><a href="#/signin" ng-click="logout()">Logout</a></li>
+        </ul>
+      </div> 
     <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
     <div ng-view></div>
 

@@ -64,4 +64,10 @@ angular.module('shortly', [
       $location.path('/signin');
     }
   });
+})
+.controller('LogoutController', function ($rootScope, $scope, Auth) {
+  // Your code here
+  $rootScope.isLoggedIn = false;
+  Auth.signout();
+
 });
