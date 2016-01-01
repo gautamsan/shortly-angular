@@ -1,9 +1,15 @@
 <div id='signup'>
   <h1>signup</h1>
-  <form name="signupForm" ng-submit='signup()'>
-    <input type='text' ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>signup</button>
+  <form name="signupForm" ng-submit='signup()' novalidate>
+    <input ng-class="{inputError: signupForm.username.$dirty && signupForm.username.$invalid}" name="username" type='text' ng-model='user.username' ng-minLength="3" ng-maxLength="10" ng-required="true">
+    <input ng-class="{inputError: signupForm.password.$dirty && signupForm.password.$invalid}" name="password" type="password" ng-model='user.password' ng-minLength="3" ng-maxLength="10" ng-required="true">
+    <button ng-disabled="signupForm.$invalid">signup</button>
   </form>
   <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
 </div>
+<div class="error" ng-show="signupForm.username.$dirty && signupForm.username.$error.required">You must enter your username.</div>
+<div class="error" ng-show="signupForm.username.$dirty && signupForm.username.$error.minlength || signupForm.username.$error.maxlength">Username Must Be Between 3 and 10 Character Long</div>
+<div class="error" ng-show="signupForm.password.$dirty && signupForm.password.$error.minlength || signupForm.password.$error.maxlength">Password Must Be Between 3 and 10 Character Long</div>
+
+
+

@@ -1,12 +1,3 @@
-<div id='container' >
-  <!-- Your html here -->
-  <input type='text' ng-model="search.$" placeholder="filter">
-  <ul ng-repeat="link in data.links | filter:search">
-    <li>
-      <h2>{{ link.title }}</h2>
-      <p>{{ link.url }}</p>
-      <p>{{ link.base_url+ '/' + link.code }}</p>
-      <p>Visits: {{ link.visits }}</p>
-    </li>
-  </ul>
+<div id='container'>
+<display-link linkdata="data.links"></display-link>
 </div>

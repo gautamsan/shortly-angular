@@ -1,0 +1,9 @@
+<input ng-model="search" placeholder="filter">
+<ul ng-repeat="link in linkdata | filter:search">
+  <li>
+    <h2>{{ link.title }}</h2>
+    <p>{{ link.url }}</p>
+    <p>{{ link.base_url+ '/' + link.code }}</p>
+    <p>Visits: {{ link.visits }}</p>
+  </li>
+</ul>
